@@ -65,7 +65,7 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 300m
+    cpu: 500m
     memory: 2048Mi
   requests:
     cpu: 100m
@@ -81,7 +81,7 @@ readinessProbe:
     port: http
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
