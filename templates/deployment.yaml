@@ -38,7 +38,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
              tcpSocket: 
@@ -49,13 +49,13 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          - mountPath: /application.yml
+          - mouthPath: /application.yml
             name: spring-config
             subPath: application.yml
       volumes:
-        - name: spring-config
-          configMap:
-            name: {{ .Release.Name }}-configmap
+       - name: spring-config
+            configMap:
+              name: {{ .Release.Name }}-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
