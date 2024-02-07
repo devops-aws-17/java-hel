@@ -43,9 +43,15 @@ spec:
           livenessProbe:
              tcpSocket: 
                port: http
+             timeoutSeconds: 5
+             initialDelaySeconds: 60
+             periodSeconds: 10
           readinessProbe:
              tcpSocket:
                port: http
+             timeoutSeconds: 5
+             initialDelaySeconds: 60
+             periodSeconds: 10    
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
