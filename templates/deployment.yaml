@@ -53,7 +53,7 @@ spec:
             name: spring-config
             subPath: application.yml
       volumes:
-      - name: spring-config
+        - name: spring-config
           configMap:
             name: {{ .Release.Name }}-configmap
       {{- with .Values.nodeSelector }}
