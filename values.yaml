@@ -40,8 +40,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 8080
+  nodeport: 30007
 
 ingress:
   enabled: true
@@ -50,9 +51,9 @@ ingress:
     kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/scheme: "internet-facing"
     alb.ingress.kubernetes.io/target-type: "instance"
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}, {"HTTP": 8080}, {"HTTPS": 8443}]'
+    alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
   hosts:
-    - host: chart-example.local
+    - host: javaapp.myapp22.xyz
       paths:
         - path: /
           pathType: ImplementationSpecific
