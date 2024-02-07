@@ -42,10 +42,10 @@ spec:
               protocol: TCP
           livenessProbe:
              tcpSocket: 
-               port: httpd
+               port: http
           readinessProbe:
              tcpSocket:
-               port: httpd
+               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
