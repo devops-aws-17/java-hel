@@ -49,15 +49,15 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          - mouthPath: /application.yml
+          - mountPath: /application.yml
             name: spring-config
             subPath: application.yml
       volumes:
-       - name: spring-config
-            configMap:
-              name: {{ .Release.Name }}-configmap
+      - name: spring-config
+          configMap:
+            name: {{ .Release.Name }}-configmap
       {{- with .Values.nodeSelector }}
-      nodeSelector:
+    nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.affinity }}
