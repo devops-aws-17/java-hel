@@ -42,7 +42,7 @@ securityContext: {}
 service:
   type: NodePort
   port: 8080
-  nodeport: 30001
+  nodeport: 30010
 
 ingress:
   enabled: true
@@ -53,9 +53,9 @@ ingress:
     alb.ingress.kubernetes.io/target-type: "instance"
     alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
   hosts:
-    - host: 
+    - host: javaapp.myapp22.xyz 
       paths:
-        - path: /
+        - path: /plans/category
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
