@@ -55,7 +55,7 @@ ingress:
   hosts:
     - host: javaapp.myapp22.xyz
       paths:
-        - path: /plans/category
+        - path: /plans
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
