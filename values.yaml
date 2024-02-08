@@ -42,7 +42,7 @@ securityContext: {}
 service:
   type: NodePort
   port: 8080
-  nodePort: 30007
+  nodeport: 30007
 
 ingress:
   enabled: true
@@ -55,7 +55,7 @@ ingress:
   hosts:
     - host: javaapp.myapp22.xyz
       paths:
-        - path: /
+        - path: /plans/category
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
