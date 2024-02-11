@@ -45,17 +45,17 @@ service:
   nodeport: 30010
 
 ingress:
-  enabled: true
+  enabled: false
   className: "alb"
   annotations: 
-    service.beta.kubernetes.io/aws-load-balancer-type: "alb"
-    alb.ingress.kubernetes.io/scheme: "internet-facing"
-    alb.ingress.kubernetes.io/target-type: "instance"
-    alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
+    #service.beta.kubernetes.io/aws-load-balancer-type: "alb"
+    #alb.ingress.kubernetes.io/scheme: "internet-facing"
+    #alb.ingress.kubernetes.io/target-type: "instance"
+    #alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
   hosts:
-    - host: javaapp.myapp22.xyz 
+    - host: 
       paths:
-        - path: /plans
+        - path: /
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
