@@ -40,21 +40,22 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 8080
+  nodeport: 30020
 
 ingress:
-  enabled: false
+  enabled: true
   className: "alb"
   annotations: 
-    #service.beta.kubernetes.io/aws-load-balancer-type: "alb"
-    #alb.ingress.kubernetes.io/scheme: "internet-facing"
-    #alb.ingress.kubernetes.io/target-type: "instance"
-    #alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
+    service.beta.kubernetes.io/aws-load-balancer-type: "alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/target-type: "instance"
+    alb.ingress.kubernetes.io/listen-ports: '[ {"HTTP": 8080}]'
   hosts:
-    - host: 
+    - host: javaapp.myapp22.xyz
       paths:
-        - path: /
+        - path: /plans
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
